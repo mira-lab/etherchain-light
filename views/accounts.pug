@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h3 Accounts
-  table.table
+  h1.display-4.mt-3.mb-3 Accounts
+  table.table.table-bordered.table-stripped.table-hover.table-sm.mb-3
     thead
       tr
         th Address
@@ -15,4 +15,6 @@ block content
             a(href="/account/" + account.address) #{nameformatter.format(account.address)}
           td #{account.type}
           td #{ethformatter(account.balance)}
-  a.btn.btn-default(href="/accounts/" + lastAccount) Next Page
+  div.form-row.text-center
+    div.col-12
+      a.btn.btn-outline-primary(href="/accounts/" + lastAccount) Next Page

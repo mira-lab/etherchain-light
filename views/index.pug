@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h3 Recent blocks
-  table.table
+  h1.display-4.mt-3.mb-3 Recent blocks
+  table.table.table-bordered.table-stripped.table-hover.table-sm
     thead
       tr
         th Number
@@ -20,9 +20,9 @@ block content
           td #{moment.unix(block.timestamp).format()}
           td #{block.transactions.length}
           td #{block.uncles.length}
-  h3 Recent Transactions
+  h1.display-4.mt-3.mb-3 Recent Transactions
   if txs.length === 0
-    p No transactions during the last 10 blocks
+    div.alert.alert-primary(role='alert') No transactions during the last 10 blocks
   else
     table.table
       thead

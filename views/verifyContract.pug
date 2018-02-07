@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h3 Verify contract source
+  h1.display-4.mt-3.mb-3 Verify contract source
   form(action="/contract/verify", method="post")
     .form-group
       label(for="contractAddress") Contract address
@@ -21,6 +21,8 @@ block content
       label.checkbox-inline
         input(type="checkbox", name="useOptimizations", checked)#useOptimizations
         | Enable Optimization
-    button.btn.btn-default.pull-right(type="submit") Verify
+    div.form-row.text-center
+        div.col-12
+            button.btn.btn-outline-primary(type="submit") Verify
   if message
     p #{message}

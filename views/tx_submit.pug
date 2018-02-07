@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  h3 Submit raw transaction
+  h1.display-4.mt-3.mb-3 Submit raw transaction
   form(action="/tx/submit", method="post")
     .form-group
       label(for="txHex") Signed Transaction Hex
       textarea.form-control#txHex(rows=15, name="txHex", placeholder="0x...")
-    button.btn.btn-default.pull-right(type="submit") Submit
+    div.form-row.text-center
+        div.col-12
+            button.btn.btn-outline-primary(type="submit") Submit
   if message
-    p #{message}
+    div.alert.alert-primary(role='alert') #{message}

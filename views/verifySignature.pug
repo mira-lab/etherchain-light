@@ -2,7 +2,7 @@ extends layout
 
 block content
   #home.container
-    h2 Verify Ethereum signatures
+    h1.display-4.mt-3.mb-3 Verify Ethereum signatures
     .row
       .col-md-12
         form(action="/signature/verify", method="post")
@@ -15,7 +15,9 @@ block content
           .form-group
             label(for="signature") Signature (obtained via eth.sign(address, web3.sha3(message))
             input.form-control#signature(type="text", placeholder="0x...", name="signature", value=signature)
-          button.btn.btn-default.pull-right(type="submit") Verify    
+          div.form-row.text-center
+              div.col-12
+                  button.btn.btn-outline-primary(type="submit") Verify    
     if result    
       br
       .row
