@@ -4,9 +4,20 @@ var net = require('net');
 var config = function () {
   
   this.logFormat = "combined";
-  this.ipcPath = process.env["HOME"] + "/.local/share/io.parity.ethereum/jsonrpc.ipc";
-  this.provider = new web3.providers.IpcProvider(this.ipcPath, net);
-  
+  if (process.env.WEB3_PROVIDER) {
+    if (process.env.WEB3_PROVIDER.match("(ws)|(https?):\\/\\/")) {
+      this.provider = new web3.providers.HttpProvider(process.env.WEB3_PROVIDER);
+    } else {
+      this.provider = new web3.providers.IpcProvider(process.env.WEB3_PROVIDER, net);
+
+    }
+
+  } else {
+    this.ipcPath = process.env["HOME"] + "/.local/share/io.parity.ethereum/jsonrpc.ipc";
+    this.provider = new web3.providers.IpcProvider(this.ipcPath, net);
+
+  }
+
   this.bootstrapUrl = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
   
   this.names = {
