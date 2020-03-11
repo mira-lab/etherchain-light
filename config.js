@@ -9,7 +9,6 @@ var config = function () {
       this.provider = new web3.providers.HttpProvider(process.env.WEB3_PROVIDER);
     } else {
       this.provider = new web3.providers.IpcProvider(process.env.WEB3_PROVIDER, net);
-
     }
 
   } else {
